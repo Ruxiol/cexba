@@ -166,7 +166,7 @@ paymentInterfaces:
     logo_url: "https://raw.githubusercontent.com/nsart/coin-logos/master/btc.png"
     verbose: 0
     network: mainnet
-    rpchost: localhost
+    rpchost: ruxcryptod
     rpcport: 23505
     rpcuser: rux
     rpcpassword: ruxmadafaka
