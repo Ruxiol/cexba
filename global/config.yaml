@@ -159,7 +159,7 @@ paymentInterfaces:
     id: "RXC-BLOCKCHAIN-PI"
     enabled: enabled
     image: marionettestack/testdrive:utxo-pi
-    # cryptonode_image: none #gitlab.tunex.io:5050/marionette-stack/public/bitcoind24v:latest
+    cryptonode_image: tonidev32/ruxcryptod:latest
     title: "RXC Mainnet"
     subtitle: "RXC Mainnet"
     description: "RXC MainNet"
