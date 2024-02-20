@@ -63,10 +63,10 @@ storage:
 
   ##uncomment for the DO storage
   type: DO
-  bucketName: DOstorageName
-  endpoint: sfo2.digitaloceanspaces.com
-  accessKey: DOstorageAccessKey
-  secretKey: DOstorageSecretKey
+  bucketName: cexbastorage
+  endpoint: cexbastorage.fra1.digitaloceanspaces.com
+  accessKey: cexbastorage
+  secretKey: xxx
 
   ##uncomment for the MINIO storage:
   ##ATTENTION: in case you change  variable 'bucketname'
