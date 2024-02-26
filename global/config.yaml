@@ -106,7 +106,7 @@ components:
       enabled: true
       email: qa@tunex.io
   jaeger:
-    enabled: false
+    enabled: true
     image: jaegertracing/all-in-one
     path: /trace
   # client specific
@@ -133,9 +133,9 @@ components:
       image: marionettestack/testdrive:proxy
       port: 3000
     googleAuth:
-      enabled: false
+      enabled: true
       image: marionettestack/testdrive:google-auth
-      client_id: googleClientId.apps.googleusercontent.com #must be formed by client!
+      client_id: 612065116763-4gcoqc7duhn9guqiug4spqri20b0shi2.apps.googleusercontent.com  #must be formed by client!
       tableprefixmigrate: googleAuth
 # Get api Key on the coinMarketCap (coinmarketcap.com) using Start plan as a minor for the "marketcapRateSource" section
 rateSources:
