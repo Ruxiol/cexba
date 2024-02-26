@@ -91,7 +91,7 @@ paths:
   verify_email_error: "/#/accounts/verify/error"
 admin_options:
   NodeRed:
-    enabled: true
+    enabled: false
   changingBalance:
     enabled: true
     manualPaymentInterfaceId: "MANUAL-PI"
@@ -117,14 +117,14 @@ components:
     custodial_exchange:
       enabled: true
     non_custodial_exchange:
-     enabled: true
+     enabled: false
   adminPanel: marionettestack/testdrive:admin-panel
   trading:
     enabled: true
     separate_trading_user_account: false
     default_market: "RXCG-USDT"
   walletconnect:
-    enabled: true
+    enabled: false
     wallet_verify_message: "Please, verify"
   extensions:
     tradingview:
@@ -155,16 +155,15 @@ rateSources:
 paymentInterfaces:
   enabled: true
   log_level: "info"
-
-  bitcoin:
-    id: "RXC-PI"
+  ruxcrypto:
+    id: "RXC-BLOCKCHAIN-PI"
     enabled: true
-    image: cexba/testdrive:utxo-pi
+    image: marionettestack/testdrive:utxo-pi
     cryptonode_image: cexba/ruxcryptod:latest
-    title: "RUXCRYPTO MAINNET"
+    title: "RXC Mainnet"
     subtitle: "RXC Mainnet"
-    description: "Mainnet"
-    logo_url: "https://crypto.ba/uploads/default/original/2X/9/99e13afec56f555e96d3d48464562ed55cb89520.png"
+    description: "RXC MainNet"
+    logo_url: "https://raw.githubusercontent.com/nsart/coin-logos/master/btc.png"
     verbose: 0
     network: mainnet
     rpchost: ruxcryptod
@@ -173,11 +172,10 @@ paymentInterfaces:
     rpcpassword: changeme
     port: 23506
     explorer_address: "https://rxcinfo.crypto.ba/address/#{address}"
-    explorer_transaction: "https://rxcinfo.crypto.ba/#{txid}"
-    wait_confirmation_timeout: 15000383
-    min_confirmations: 6
-    max_request_blocks: 10
-
+    explorer_transaction: "https://rxcinfo.crypto.ba/tx/#{txid}"
+    wait_confirmation_timeout: 34315000
+    min_confirmations: 2
+    max_request_blocks: 6
   evm:
     - id: RXCG-MAINNET-PI
       enabled: enable

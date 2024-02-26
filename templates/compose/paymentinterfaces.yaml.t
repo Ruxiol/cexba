@@ -31,6 +31,35 @@ services:
       - db-bridge
 {{/if}}
 
+{{#if paymentInterfaces.ruxcrypto.enabled}}
+  {{paymentInterfaces.ruxcrypto.id}}:
+    image: {{paymentInterfaces.ruxcrypto.image}}
+    hostname: {{paymentInterfaces.ruxcrypto.id}}
+    restart: always
+    command: npm start
+    environment:
+      RPC_USER: "{{paymentInterfaces.ruxcrypto.rpcuser}}"
+      RPC_PASSWORD: "{{paymentInterfaces.ruxcrypto.rpcpassword}}"
+      RPC_HOST: "{{paymentInterfaces.ruxcrypto.rpchost}}"
+      NETWORK: "{{paymentInterfaces.ruxcrypto.network}}"
+      RPC_PORT: "{{paymentInterfaces.ruxcrypto.rpcport}}"
+      PORT: "{{paymentInterfaces.ruxcrypto.port}}"
+      EXPLORER_ADDRESS: {{paymentInterfaces.ruxcrypto.explorer_address}}
+      EXPLORER_TRANSACTION: {{paymentInterfaces.ruxcrypto.explorer_transaction}}
+      LOGLEVEL: {{log_level}}
+      PREFIX: {{paymentInterfaces.ruxcrypto.id}}
+      TITLE: {{paymentInterfaces.ruxcrypto.title}}
+      SUBTITLE: {{paymentInterfaces.ruxcrypto.subtitle}}
+      DESCRIPTION: {{paymentInterfaces.ruxcrypto.description}}
+      WAIT_CONFIRMATION_TIMEOUT: {{paymentInterfaces.ruxcrypto.wait_confirmation_timeout}}
+      MIN_CONFIRMATIONS: {{paymentInterfaces.ruxcrypto.min_confirmations}}
+      MAX_REQUEST_BLOCKS: {{paymentInterfaces.ruxcrypto.max_request_blocks}}
+      VERBOSE: {{paymentInterfaces.ruxcrypto.verbose}}
+    depends_on:
+      - api
+      - db-bridge
+{{/if}}
+
 {{#each paymentInterfaces.evm}}
 {{#if enabled}}
   {{id}}:
