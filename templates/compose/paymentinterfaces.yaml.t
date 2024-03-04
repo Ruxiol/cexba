@@ -133,3 +133,28 @@ services:
       - api
       - db-bridge
 {{/if}}
+
+{{#if payment_interfaces.tron.enabled}}
+  {{payment_interfaces.tron.id}}:
+    image: {{payment_interfaces.tron.service_image}}
+    hostname: {{payment_interfaces.tron.id}}
+    restart: always
+    command: ./main
+    environment:
+      PREFIX: {{payment_interfaces.tron.id}}
+      EXPLORER_ADDRESS: {{payment_interfaces.tron.explorer_address}}
+      EXPLORER_TRANSACTION: {{payment_interfaces.tron.explorer_transaction}}
+      LOGLEVEL: {{payment_interfaces.log_level}}
+      NETWORK: {{payment_interfaces.tron.network}}
+      TITLE: {{payment_interfaces.tron.title}}
+      SUBTITLE: {{payment_interfaces.tron.subtitle}}
+      DESCRIPTION: {{payment_interfaces.tron.description}}
+      CHAIN_ID: {{payment_interfaces.tron.chainId}}
+      TYPE: {{payment_interfaces.tron.type}}
+      HOST: {{payment_interfaces.tron.host}}
+      MAX_REQUEST_BLOCKS: {{payment_interfaces.tron.max_request_blocks}}
+      MIN_CONFIRMATIONS: {{payment_interfaces.tron.min_confirmations}}
+    depends_on:
+      - api
+      - db-bridge
+{{/if}}
