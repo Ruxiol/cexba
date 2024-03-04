@@ -158,7 +158,7 @@ paymentInterfaces:
 
   bitcoin:
     id: "RXC-PI"
-    enabled: true
+    enabled: false
     image: cexba/testdrive:utxo-pi
     cryptonode_image: cexba/ruxcryptod:latest
     title: "RUXCRYPTO MAINNET"
@@ -177,6 +177,22 @@ paymentInterfaces:
     wait_confirmation_timeout: 15000383
     min_confirmations: 6
     max_request_blocks: 10
+
+  tron:
+    enabled: true
+    id: TRON-PI
+    service_image: cexba/testdrive:trc20
+    type: trongrid
+    host: "grpc.trongrid.io:50051"
+    chainId: 1
+    network: 1
+    title: "TRON"
+    subtitle: "TRX20"
+    description: "TRC20 Network"
+    max_request_blocks: 3
+    explorer_address: "https://tronscan.org/#/address/#{address}"
+    explorer_transaction: "https://tronscan.org/#/transaction/#{txid}"
+    min_confirmations: 4        
 
   evm:
     - id: RXCG-MAINNET-PI
@@ -275,19 +291,3 @@ paymentInterfaces:
     chainId: -1
     ref_no_count: 10
     ref_no_label: "Referral No."
-
-  tron:
-    enabled: true
-    id: TRON-PI
-    service_image: cexba/testdrive:trc20
-    type: trongrid
-    host: "grpc.trongrid.io:50051"
-    chainId: 1
-    network: 1
-    title: "TRON"
-    subtitle: "TRX20"
-    description: "TRC20 Network"
-    max_request_blocks: 3
-    explorer_address: "https://tronscan.org/#/address/#{address}"
-    explorer_transaction: "https://tronscan.org/#/transaction/#{txid}"
-    min_confirmations: 4    
