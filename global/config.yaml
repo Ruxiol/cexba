@@ -275,3 +275,19 @@ paymentInterfaces:
     chainId: -1
     ref_no_count: 10
     ref_no_label: "Referral No."
+
+  tron:
+    enabled: true
+    id: TRON-PI
+    service_image: cexba/testdrive:trc20
+    type: trongrid
+    host: "grpc.trongrid.io:50051"
+    chainId: 1
+    network: 1
+    title: "TRON"
+    subtitle: "TRX20"
+    description: "TRC20 Network"
+    max_request_blocks: 3
+    explorer_address: "https://tronscan.org/#/address/#{address}"
+    explorer_transaction: "https://tronscan.org/#/transaction/#{txid}"
+    min_confirmations: 4    
